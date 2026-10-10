@@ -30,7 +30,7 @@ public class Cuenta {
     @Column(nullable = false, unique = true)
     private UUID tokenId;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String numeroCuenta;
 
     private String tipoCuenta;

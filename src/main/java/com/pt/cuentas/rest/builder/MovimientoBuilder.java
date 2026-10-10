@@ -34,7 +34,7 @@ public class MovimientoBuilder {
     public Movimiento builderUpdate(Movimiento item,
                                     MovimientoDto model, Cuenta cuenta) {
         return Movimiento.builder()
-                .id(model.getId())
+                .id(item.getId())
                 .tokenId(item.getTokenId())
                 .tipoMovimiento(model.getTipoMovimiento())
                 .valor(model.getValor())

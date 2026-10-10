@@ -21,20 +21,29 @@ public class CuentaService {
 
 
     public CuentaDto save(CuentaDto model) {
+        existsCuenta(model.getNumeroCuenta());
         return cuentaBuilder.builderResponse(cuentaRepository.save(cuentaBuilder.builder(model)));
     }
 
-    public CuentaDto update(UUID tokenId, CuentaDto model) {
+    private void existsCuenta(String numeroCuenta) {
+        cuentaRepository.findByNumeroCuenta(numeroCuenta).ifPresent(cuenta -> {
+            throw new GeneralException(MessageFormat.format(ExceptionMessages.CUENTA_EXIST, numeroCuenta));
+        });
+    }
 
+    public CuentaDto update(UUID tokenId, CuentaDto model) {
         Cuenta cuenta = cuentaRepository.findByTokenId(tokenId).orElseThrow(() -> new GeneralException(MessageFormat
                 .format(ExceptionMessages.CUENTA_NOT_FOUND, tokenId)));
+        if (!cuenta.getNumeroCuenta().equals(model.getNumeroCuenta())) {
+            existsCuenta(model.getNumeroCuenta());
+        }
         return cuentaBuilder.builderResponse(cuentaRepository.save(cuentaBuilder.builderUpdate(cuenta, model)));
     }
 
     public CuentaDto findByIdToken(UUID tokenId) {
         return cuentaBuilder.builderResponse(cuentaRepository.findByTokenId(tokenId)
                 .orElseThrow(() -> new GeneralException(MessageFormat
-                .format(ExceptionMessages.CUENTA_NOT_FOUND, tokenId))));
+                        .format(ExceptionMessages.CUENTA_NOT_FOUND, tokenId))));
     }
 
 

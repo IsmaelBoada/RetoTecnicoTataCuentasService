@@ -11,4 +11,6 @@ import java.util.UUID;
 public interface CuentaRepository  extends JpaRepository<Cuenta, Long> {
 
     Optional<Cuenta> findByTokenId(UUID tokenId);
+
+    Optional<Cuenta> findByNumeroCuenta(String numeroCuenta);
 }
