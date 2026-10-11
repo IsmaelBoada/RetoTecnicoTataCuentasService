@@ -39,6 +39,11 @@ public class Cuenta {
 
     private Boolean estado;
 
+    private BigDecimal saldoDisponible;
+
+
+    @Column(nullable = false)
+    private UUID tokenIdCliente;
 
     @PrePersist
     public void prePersist() {

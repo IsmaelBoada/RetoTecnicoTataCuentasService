@@ -4,6 +4,7 @@ package com.pt.cuentas.services.messages;
 public abstract class ExceptionMessages {
 
 
+
     public ExceptionMessages() {
     }
 
@@ -14,4 +15,11 @@ public abstract class ExceptionMessages {
     public static final String ERROR_VALIDACIONES_REQUEST = "Existe los siguientes errores: ";
 
     public static final String ERROR_TIPO_ENUM = "Tipo movimiento no disponible:";
+
+    public static final String SALDO_INSUFICIENTE = "La cuenta, c#{0}, no tiene saldo suficiente para el retiro";
+    public static final String VALOR_MENOR_CERO = "El valor del deposito debe ser mayor que cero";
+    public static final String ERROR_VALOR_NEGATIVO = "El valor debe ser mayor que cero";
+
+
+
 }

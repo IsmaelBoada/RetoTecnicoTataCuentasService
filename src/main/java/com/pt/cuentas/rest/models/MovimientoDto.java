@@ -25,7 +25,6 @@ public class MovimientoDto {
     private BigDecimal valor;
     private BigDecimal saldo;
     private String fecha;
-    private UUID tokenIdCliente;
     @NotNull(message = "El token de la cuenta no puede ser nulo")
     private UUID idTokenCuenta;
 

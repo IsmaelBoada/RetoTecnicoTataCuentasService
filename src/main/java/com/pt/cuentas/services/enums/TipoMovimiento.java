@@ -7,9 +7,9 @@ import lombok.RequiredArgsConstructor;
 @Getter
 public enum TipoMovimiento {
 
-    E("Egreso"),
-    I("Ingreso");
+    DEPOSITO,
+    RETIRO;
 
-    private final String descripcion;
+
 
 }

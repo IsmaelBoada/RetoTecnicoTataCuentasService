@@ -5,6 +5,8 @@ CREATE TABLE IF NOT EXISTS cuenta (
     numero_cuenta VARCHAR(255) NOT NULL UNIQUE,
     tipo_cuenta VARCHAR(255),
     saldo_inicial NUMERIC(19, 2),
+    token_id_cliente UUID NOT NULL,
+    saldo_disponible NUMERIC(19, 2),
     estado BOOLEAN
 );
 
@@ -15,10 +17,15 @@ CREATE TABLE IF NOT EXISTS movimiento (
     valor NUMERIC(19, 2),
     saldo NUMERIC(19, 2),
     fecha DATE,
-    token_id_cliente UUID,
     cuenta_id BIGINT,
 
     CONSTRAINT fk_movimiento_cuenta
         FOREIGN KEY (cuenta_id)
         REFERENCES cuenta (id)
+);
+
+CREATE TABLE IF NOT EXISTS cliente_referencia (
+    token_id UUID PRIMARY KEY,
+    nombre VARCHAR(150) NOT NULL,
+    identificacion VARCHAR(20) NOT NULL
 );

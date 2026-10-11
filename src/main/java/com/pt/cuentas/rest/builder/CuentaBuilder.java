@@ -14,6 +14,8 @@ public class CuentaBuilder {
                 .tipoCuenta(model.getTipoCuenta())
                 .saldoInicial(model.getSaldoInicial())
                 .estado(model.getEstado())
+                .tokenIdCliente(model.getTokenIdCliente())
+                .saldoDisponible(model.getSaldoInicial())
                 .build();
     }
 
@@ -26,6 +28,7 @@ public class CuentaBuilder {
                 .tipoCuenta(model.getTipoCuenta())
                 .saldoInicial(model.getSaldoInicial())
                 .estado(model.getEstado())
+                .tokenIdCliente(model.getTokenIdCliente())
                 .build();
     }
 
@@ -38,6 +41,7 @@ public class CuentaBuilder {
                 .tipoCuenta(model.getTipoCuenta())
                 .saldoInicial(model.getSaldoInicial())
                 .estado(model.getEstado())
+                .tokenIdCliente(model.getTokenIdCliente())
                 .build();
     }
 
